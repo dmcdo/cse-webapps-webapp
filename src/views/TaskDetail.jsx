@@ -6,8 +6,10 @@ import "./stylesheets/detail.css";
 
 function Task({ name, category, urgency, startDate, endDate, location, status, description }) {
     return <>
-        <h1>{ name }</h1>
-        <div className="task">
+        <div className="card flex flex-col items-center">
+            <h1>{ name }</h1>
+        </div>
+        <div className="task card flex flex-col items-center">
             <h2><b>Category:</b></h2> <p>{category}</p>
             <h2><b>Urgency:</b></h2> <p>{urgency}</p>
             <h2><b>Start Date:</b></h2> <p>{startDate}</p>
@@ -33,7 +35,7 @@ function TaskDetail() {
                 <a href="list">&larr; My To Do List</a>
             </div>
         </div>
-            <div id="tasks">
+            <div id="tasks" className="card flex flex-col items-center">
                 <div className="image-select">
                     <h2><b>Select picture per task type:</b></h2>
                     <div className="pictures">

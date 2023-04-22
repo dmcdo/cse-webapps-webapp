@@ -42,7 +42,9 @@ function List(props) {
                     </a>
                 </div>
                 <div id="tasks">
-                    <ListTasks tasks={data} />
+                    <div className="card flex flex-col items-center">
+                        <ListTasks tasks={data} />
+                    </div>
                 </div>
             </main>
 

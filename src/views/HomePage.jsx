@@ -12,6 +12,7 @@ function HomePage() {
             <main>
                 <br />
 
+                <div className="card flex flex-col items-center">
                 <h1>
                     Create your own to do list
                 </h1>
@@ -19,6 +20,7 @@ function HomePage() {
                 <p>
                     Simply click on the My to do list page to get started!
                 </p>
+                </div>
 
                 <br />
                 <br /> 
