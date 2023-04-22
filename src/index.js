@@ -8,8 +8,8 @@ import reportWebVitals from './reportWebVitals';
 import HomePage from './pages/HomePage';
 import About from './pages/About';
 import List from './pages/List';
-import SignIn from './components/SignIn';
 import TaskDetail from './pages/TaskDetail';
+import CreateNew from './pages/CreateNew';
 
 export default function Main() {
     return (
@@ -19,6 +19,7 @@ export default function Main() {
                 <Route path="/about" element={<About />} />
                 <Route path="/list" element={<List />} />
                 <Route path="/detail" element={<TaskDetail />} />
+                <Route path="/createNew" element={<CreateNew />} />
             </Routes>
         </BrowserRouter>
     )

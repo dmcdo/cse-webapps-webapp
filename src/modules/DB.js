@@ -5,13 +5,14 @@ export const GetTasks = function() {
 
     useEffect(() => {
         fetch("tasks.json")
-        .then((res) => res.json())
-        .then(setData);
+        .then((res) => {
+            return res.json();
+        })
+        .then((dat) => {
+            console.log(dat);
+            setData(dat);
+        });
     }, []);
 
     return data;
-}
-
-export const GetTask = function(id) {
-    return GetTasks();
 }

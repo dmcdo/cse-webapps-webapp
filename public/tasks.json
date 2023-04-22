@@ -1,5 +1,4 @@
-{
-    "tasks": [
+[
         {
             "id": 0,
             "name": "Finish webapps Milestone 1.",
@@ -18,5 +17,4 @@
             "status": "Pending",
             "Description": "Do Milestone 2"
         }
-    ]
-}
+]

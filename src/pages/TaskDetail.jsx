@@ -1,13 +1,13 @@
 import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { GetTask } from '../modules/DB';
+import { GetTasks } from '../modules/DB';
 
 function TaskDetail() {
+    const tasks = GetTasks();
+
     return <>
         <Header />
-
-        <h5>{JSON.stringify(GetTask())}</h5>
 
         <main class="flex flex-col">
         <div>
@@ -37,6 +37,10 @@ function TaskDetail() {
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <div>
+                {JSON.stringify(tasks)}
             </div>
         </main>
 
