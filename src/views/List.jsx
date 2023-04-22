@@ -4,7 +4,9 @@ import Footer from './components/Footer';
 import { GetTasks } from '../modules/DB';
 
 function List(props) {
-    const tasks = GetTasks();
+    console.log(props.tasks);
+    const firstTask = JSON.parse(props.tasks);
+    console.log(firstTask);
 
     return <>
         <Header />
@@ -19,7 +21,7 @@ function List(props) {
                 </a>
             </div>
             <div id="tasks">
-                <a href="/detail">{JSON.stringify(tasks)}</a>
+                <a href="/detail">{JSON.stringify(firstTask)}</a>
             </div>
         </main>
 

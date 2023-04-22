@@ -10,14 +10,18 @@ import About from './views/About';
 import List from './views/List';
 import TaskDetail from './views/TaskDetail';
 import CreateNew from './views/CreateNew';
+import { GetTasks } from './modules/DB';
+
 
 export default function Main() {
+    const tasks = GetTasks();
+
     return (
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/about" element={<About />} />
-                <Route path="/list" element={<List />} />
+                <Route path="/list" element={<List tasks={JSON.stringify(tasks)} />} />
                 <Route path="/detail" element={<TaskDetail />} />
                 <Route path="/createNew" element={<CreateNew />} />
             </Routes>
