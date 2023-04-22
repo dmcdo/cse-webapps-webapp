@@ -1,6 +1,4 @@
 import React, {useState, useEffect} from 'react';
-import HomePage from '../pages/HomePage';
-
 import {auth, provider} from '../modules/firebase'
 import {signInWithPopup} from "firebase/auth";
 
@@ -19,7 +17,7 @@ function SignIn() {
 
     useEffect(() => {
         setValue(localStorage.getItem("name"));
-    });
+    }, []);
 
     return value ? <></> : <button onClick={handleClick}>Sign In With Google</button>
 }
