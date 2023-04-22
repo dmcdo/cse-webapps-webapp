@@ -5,11 +5,11 @@ import './index.css';
 import './stylesheet.css';
 import reportWebVitals from './reportWebVitals';
 
-import HomePage from './pages/HomePage';
-import About from './pages/About';
-import List from './pages/List';
-import TaskDetail from './pages/TaskDetail';
-import CreateNew from './pages/CreateNew';
+import HomePage from './views/HomePage';
+import About from './views/About';
+import List from './views/List';
+import TaskDetail from './views/TaskDetail';
+import CreateNew from './views/CreateNew';
 
 export default function Main() {
     return (

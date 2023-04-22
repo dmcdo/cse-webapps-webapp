@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {auth, provider} from '../modules/firebase'
+import {auth, provider} from '../../modules/firebase'
 import {signInWithPopup} from "firebase/auth";
 
 function SignIn() {

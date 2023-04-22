@@ -1,7 +1,7 @@
 import React from 'react';
-import Header from '../components/Header';
-import NavButtons from '../components/NavButtons'
-import Footer from '../components/Footer';
+import Header from './components/Header';
+import NavButtons from './components/NavButtons'
+import Footer from './components/Footer';
 
 class About extends React.Component {
     render() {

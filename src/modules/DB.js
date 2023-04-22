@@ -5,9 +5,7 @@ export const GetTasks = function() {
 
     useEffect(() => {
         fetch("tasks.json")
-        .then((res) => {
-            return res.json();
-        })
+        .then((res) => res.json())
         .then((dat) => {
             console.log(dat);
             setData(dat);
