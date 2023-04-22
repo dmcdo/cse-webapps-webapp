@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import { GetTasks } from '../modules/DB';
+import { GetTasks } from '../models/DB';
 import "./stylesheets/detail.css";
 
 function Task({ name, category, urgency, startDate, endDate, location, status, description }) {

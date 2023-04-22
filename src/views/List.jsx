@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import { GetTasks } from '../modules/DB';
+import { GetTasks } from '../models/DB';
 import "./stylesheets/list.css";
 
 function TaskPreview({ id, name, endDate, status }) {

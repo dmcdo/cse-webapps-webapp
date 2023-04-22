@@ -10,7 +10,7 @@ import About from './views/About';
 import List from './views/List';
 import TaskDetail from './views/TaskDetail';
 import CreateNew from './views/CreateNew';
-import { GetTasks } from './modules/DB';
+import { GetTasks } from './models/DB';
 
 
 export default function Main() {
