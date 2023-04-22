@@ -1,0 +1,148 @@
+html {
+  background-color: antiquewhite;
+}
+
+body {
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 10px;
+  background-color: blanchedalmond;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  background-color: burlywood;
+  min-height: 170%;
+  text-align: center;
+  font-family: 'Franklin Gothic Medium';
+  font-size: 200%;
+  border-bottom: 5px solid;
+}
+
+main {
+  flex: 1 0 auto;
+  margin: 0 auto;
+}
+
+a:hover, a:active {
+  text-decoration: underline;
+}
+
+hr {
+  border-color: black;
+}
+
+#logo{
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  height: 132px;
+  width: auto;
+}
+
+@media screen and (max-width: 900px) {
+  #logo {
+      width: 15%;
+      height: auto;
+  }
+} 
+
+#bo{
+  position:absolute;
+  bottom: 0;
+}
+
+#goback {
+  color: blue;
+  margin-bottom: 15px;
+  margin-top: 10px;
+}
+
+#goback > a:visited {
+  color: darkblue;
+}
+
+.userLogin {
+  text-align: right;
+  font-size: 50%;
+}
+
+footer {
+  width: 100%;
+  color: black;
+  font-weight: bold;
+  text-align: center;
+  background-color: burlywood;
+  border-top: 5px solid;
+  /*background-image: url("bordermu.jpg"); */
+}
+
+.navb {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  list-style-type: none;
+  margin-top: 10px;
+}
+
+.navb > li {
+  background-color: DarkKhaki;
+  font-weight: bold;
+  border-radius: 8px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  margin: 5px;
+  width: 100px;
+}
+
+@media screen and (min-width: 520px) {
+  .navb > li {
+      font-size: 180%;
+      width: 250px;
+      height: 100px;
+      margin-left: 20px;
+      margin-right: 20px;
+      margin: 10px;
+  }
+}
+
+.index-img {
+  width: 50% !important;
+}
+
+.card {
+  margin-bottom: 50px;
+}
+
+.cat-img {
+  height: 150px;
+  width: 100%;
+  object-fit: cover;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  border-width: 1px;
+  border-color: black;
+}
+
+input, textarea, select {
+  width: 20em;
+  border-radius: 3px;
+  padding: 1px 5px 2px 5px !important;
+}
+
+textarea {
+  resize: vertical;
+}
+
+#submit-button {
+  background-color: DarkKhaki;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}

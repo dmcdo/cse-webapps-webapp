@@ -1,0 +1,22 @@
+{
+    "tasks": [
+        {
+            "id": 0,
+            "name": "Finish webapps Milestone 1.",
+            "startDate": "02/18/2023",
+            "endDate": "02/19/2023",
+            "location": "Main Campus",
+            "status": "Completed",
+            "Description": "This assignment provides the first step toward developing a dynamic web application by creating a set of static HTML5 pages for several core parts of the application flow. These pages serve as a look-and-feel design prototype for later functional / dynamic application development. This assignment is intended to (re)familiarize students with HTML development and navigation, as well as application design, deployment requirements, and assignment submission in the context of the course."
+        },
+        {
+            "id": 1,
+            "name": "Finish webapps Milestone 2.",
+            "startDate": "04/10/2023",
+            "endDate": "04/19/2023",
+            "location": "Main Campus",
+            "status": "Pending",
+            "Description": "Do Milestone 2"
+        }
+    ]
+}
