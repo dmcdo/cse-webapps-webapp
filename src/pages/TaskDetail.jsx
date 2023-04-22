@@ -9,31 +9,31 @@ function TaskDetail() {
     return <>
         <Header />
 
-        <main class="flex flex-col">
+        <main className="flex flex-col">
         <div>
             <div id="goback">
                 <a href="list">&larr; My To Do List</a>
             </div>
         </div>
             <div id="tasks">
-                <div class="image-select">
+                <div className="image-select">
                     <h2><b>Select picture per task type:</b></h2>
-                    <div class="pictures">
+                    <div className="pictures">
                         <div>
                         <p>Classwork</p>
-                        <img src="categories/classwork.jpeg" alt="Classwork" class="cat-img" />
+                        <img src="categories/classwork.jpeg" alt="Classwork" className="cat-img" />
                         </div>
                         <div>
                         <p>Extracurricular</p>
-                        <img src="categories/extracurricular.jpg" alt="Extracurricular" class="cat-img" />
+                        <img src="categories/extracurricular.jpg" alt="Extracurricular" className="cat-img" />
                         </div>
                         <div>
                         <p>Personal</p>
-                        <img src="categories/personal.jpg" alt="Personal" class="cat-img" />
+                        <img src="categories/personal.jpg" alt="Personal" className="cat-img" />
                         </div>
                         <div>
                         <p>Shopping</p>
-                        <img src="categories/shopping.jpg" alt="Shopping" class="cat-img" />
+                        <img src="categories/shopping.jpg" alt="Shopping" className="cat-img" />
                         </div>
                     </div>
                 </div>
