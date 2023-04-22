@@ -1,32 +1,54 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import { GetTasks } from '../modules/DB';
 
+function TaskPreview({ name, endDate, status }) {
+    return <div className="task">
+        <p className="taskName"><a href="detail">{name}</a></p>
+        <p class="taskInfo">Due: {endDate}. Status: {status}</p>
+        <p className="taskActions">
+            <a href="list"><button class="taskUpdateBtn hover:scale-105 transition-all shadow-md">Update</button></a>
+            <a href="list"><button class="taskDeleteBtn hover:scale-105 transition-all shadow-md">Delete</button></a>
+        </p>
+    </div>
+}
+
+function ListTasks({ tasks }) {
+    let previews = [];
+
+    for (let t of tasks) {
+        previews.push(<TaskPreview name={t.name} endDate={t.endDate} status={t.status} />);
+    }
+
+    return previews;
+}
+
 function List(props) {
-    console.log(props.tasks);
-    const firstTask = JSON.parse(props.tasks);
-    console.log(firstTask);
+    const data = GetTasks();
 
-    return <>
-        <Header />
+    if (data)
+        return <>
+            <Header />
 
-        <main className="flex flex-col">
-            <div id="goback">
-                <a href="/">&larr; Home</a>
-            </div>
-            <div className="flex flex-col items-center">
-                <a href="createNew">
-                    <button id="create-new-btn" className="hover:scale-125 transition-all shadow-lg">Create a new task</button>
-                </a>
-            </div>
-            <div id="tasks">
-                <a href="/detail">{JSON.stringify(firstTask)}</a>
-            </div>
-        </main>
+            <main className="flex flex-col">
+                <div id="goback">
+                    <a href="/">&larr; Home</a>
+                </div>
+                <div className="flex flex-col items-center">
+                    <a href="createNew">
+                        <button id="create-new-btn" className="hover:scale-125 transition-all shadow-lg">Create a new task</button>
+                    </a>
+                </div>
+                <div id="tasks">
+                    <ListTasks tasks={data} />
+                </div>
+            </main>
 
-        <Footer />
-    </>
+            <Footer />
+        </>;
+
+    return <p>Error loading data!</p>
 }
 
 export default List;

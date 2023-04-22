@@ -21,8 +21,8 @@ export default function Main() {
             <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/about" element={<About />} />
-                <Route path="/list" element={<List tasks={JSON.stringify(tasks)} />} />
-                <Route path="/detail" element={<TaskDetail />} />
+                <Route path="/list" element={<List />} />
+                <Route path="/detail" element={<TaskDetail tasks={JSON.stringify(tasks)} />} />
                 <Route path="/createNew" element={<CreateNew />} />
             </Routes>
         </BrowserRouter>

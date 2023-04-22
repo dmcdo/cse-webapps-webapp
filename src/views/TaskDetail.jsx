@@ -3,10 +3,27 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import { GetTasks } from '../modules/DB';
 
-function TaskDetail() {
-    const tasks = GetTasks();
-
+function Task({ name, category, urgency, startDate, endDate, location, status, description }) {
     return <>
+        <h1>{ name }</h1>
+        <div className="task">
+            <h2><b>Category:</b></h2> <p>{category}</p>
+            <h2><b>Urgency:</b></h2> <p>{urgency}</p>
+            <h2><b>Start Date:</b></h2> <p>{startDate}</p>
+            <h2><b>End Date:</b></h2> <p>{endDate}</p>
+            <h2><b>Location:</b></h2> <p>{location}</p>
+            <h2><b>Status:</b></h2> <p>{status}</p>
+            <h2><b>Description:</b></h2> <p>{description}</p>
+        </div>
+    </>
+}
+
+function TaskDetail() {
+    const data = GetTasks();
+    const id = Number(new URLSearchParams(window.location.search).get("id"));
+    console.log("ID: " + id);
+
+    if (data) return <>
         <Header />
 
         <main className="flex flex-col">
@@ -38,14 +55,18 @@ function TaskDetail() {
                     </div>
                 </div>
             </div>
-
             <div>
-                {JSON.stringify(tasks)}
+                <Task name={data[id].name} category={data[id].category}
+                      urgency={data[id].urgency} startDate={data[id].startDate}
+                      endDate={data[id].endDate} location={data[id].location}
+                      status={data[id].status} description={data[id].description}/>
             </div>
         </main>
 
         <Footer />
     </>
+
+    return <p>Error loading data!</p>
 }
 
 export default TaskDetail;
