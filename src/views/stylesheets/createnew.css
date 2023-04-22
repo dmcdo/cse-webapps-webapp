@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+input, textarea, select {
+  width: 20em;
+  border-radius: 3px;
+  padding: 1px 5px 2px 5px !important;
+}
+
+textarea {
+  resize: vertical;
+}
+
+#submit-button {
+  background-color: DarkKhaki;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}

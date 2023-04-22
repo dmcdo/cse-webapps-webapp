@@ -111,38 +111,6 @@ footer {
   }
 }
 
-.index-img {
-  width: 50% !important;
-}
-
 .card {
   margin-bottom: 50px;
-}
-
-.cat-img {
-  height: 150px;
-  width: 100%;
-  object-fit: cover;
-  margin-bottom: 10px;
-  border-radius: 10px;
-  border-width: 1px;
-  border-color: black;
-}
-
-input, textarea, select {
-  width: 20em;
-  border-radius: 3px;
-  padding: 1px 5px 2px 5px !important;
-}
-
-textarea {
-  resize: vertical;
-}
-
-#submit-button {
-  background-color: DarkKhaki;
-  padding: 20px;
-  border-radius: 8px;
-  margin-bottom: 20px;
-  font-weight: bold;
 }

@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.taskName > a {
+  color: blue;
+}
+
+.taskName > a:visited {
+  color: darkblue;
+}
+
+#create-new-btn {
+  background-color: DarkKhaki;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  font-size: 120%;
+}
+
+#create-new-btn:hover, #create-new-btn:active {
+  text-decoration: underline;
+}
+
+@media screen and (min-width: 40em) {
+  #tasks {
+      width: 40em;
+  }
+}
+@media screen and (max-width: 40em) {
+  #tasks {
+      width: 100%;
+  }
+}
+
+.category:not(:last-child) {
+  margin-bottom: 5em;
+}
+
+.category > h1 {
+  font-weight: bold;
+  font-size: 150%;
+}
+
+.task {
+  margin-bottom: 10px;
+}
+
+.taskName {
+  font-weight: 500;
+}
+
+.taskInfo, .taskActions {
+  text-align: right;
+}
+
+.taskActions {
+  margin-top: 5px;
+}
+
+.taskUpdateBtn, .taskDeleteBtn {
+  padding: 4px;
+  border-radius: 10px;
+}
+
+.taskUpdateBtn {
+  background-color: green;
+  color: white;
+  margin-right: 5px;
+}
+
+.taskDeleteBtn {
+  background-color: darkred;
+  color: white;
+}

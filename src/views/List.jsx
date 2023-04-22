@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import { GetTasks } from '../modules/DB';
+import "./stylesheets/list.css";
 
 function TaskPreview({ id, name, endDate, status }) {
     return <div className="task">
