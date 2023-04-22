@@ -3,9 +3,9 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import { GetTasks } from '../modules/DB';
 
-function TaskPreview({ name, endDate, status }) {
+function TaskPreview({ id, name, endDate, status }) {
     return <div className="task">
-        <p className="taskName"><a href="detail">{name}</a></p>
+        <p className="taskName"><a href={`/detail?id=${id}`}>{name}</a></p>
         <p class="taskInfo">Due: {endDate}. Status: {status}</p>
         <p className="taskActions">
             <a href="list"><button class="taskUpdateBtn hover:scale-105 transition-all shadow-md">Update</button></a>
@@ -18,7 +18,7 @@ function ListTasks({ tasks }) {
     let previews = [];
 
     for (let t of tasks) {
-        previews.push(<TaskPreview name={t.name} endDate={t.endDate} status={t.status} />);
+        previews.push(<TaskPreview id={t.id} name={t.name} endDate={t.endDate} status={t.status} />);
     }
 
     return previews;

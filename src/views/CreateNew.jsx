@@ -11,7 +11,7 @@ function CreateNew() {
                 <div id="goback">
                     <a href="list">&larr; My To Do List</a>
                 </div>
-                <form action="/detail" className="m-auto">
+                <form action="/list" className="m-auto">
                     <label for="taskName">Task Name:</label> <br />
                     <input type="text" name="taskName" placeholder="Untitled" /> <br />
                     <label for="taskCategory">Category:</label> <br />
