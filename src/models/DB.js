@@ -6,7 +6,7 @@ export const GetTasks = function() {
 
     useEffect(() => {
         const load = async () => {
-            const response = await axios.get("/api/get/tasks/byuser/default");
+            const response = await axios.get(`/api/get/tasks/byuser/default`);
             const tasks = response.data;
             setData(tasks);
         }
