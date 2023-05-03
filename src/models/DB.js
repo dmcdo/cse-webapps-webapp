@@ -34,3 +34,7 @@ export const GetTaskById = function({ id }) {
 
     return data;
 }
+
+export const PutTask = async function({ user, name, category, urgency, startDate, endDate, location, status, description }) {
+    await axios.put(`${URL}/api/put/task`, {user, name, category, urgency, startDate, endDate, location, status, description});
+}

@@ -3,10 +3,11 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import "./stylesheets/createnew.css"
 
+import { PutTask } from "../models/DB";
+
 function CreateNew() {
-    const submittask = (e) => {
+    const submittask = async (e) => {
         e.preventDefault();
-        console.log(e);
 
         let name        = document.getElementsByName("taskName")       [0].value;
         let category    = document.getElementsByName("taskCategory")   [0].value;
@@ -15,6 +16,8 @@ function CreateNew() {
         let endDate     = document.getElementsByName("taskEndDate")    [0].value;
         let location    = document.getElementsByName("taskLocation")   [0].value;
         let description = document.getElementsByName("taskDescription")[0].value;
+        let status      = "In Progress";
+        let user        = "default";
 
         let missing = [];
         if (!name)        missing.push("name");
@@ -24,10 +27,22 @@ function CreateNew() {
         if (!endDate)     missing.push("endDate");
         if (!location)    missing.push("location");
         if (!description) missing.push("description");
-        if (missing) {
+        if (!status)      missing.pidh("status");
+        if (missing.length > 0) {
             alert("Please fill out the following fields before submitting:\n" + missing.join("\n"));
             return;
         }
+
+        try {
+            await PutTask({ user, name, category, urgency, startDate, endDate, location, description, status });
+        }
+        catch (ex) {
+            alert("Encountered an error trying to upload this task.");
+            throw ex;
+        }
+
+        alert("Success!");
+        window.location.replace("/list");
     };
 
     return <>
