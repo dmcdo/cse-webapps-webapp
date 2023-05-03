@@ -10,6 +10,7 @@ import About from './views/About';
 import List from './views/List';
 import TaskDetail from './views/TaskDetail';
 import CreateNew from './views/CreateNew';
+import NotFound from './views/NotFound';
 import { GetTasks } from './models/DB';
 
 
@@ -24,6 +25,7 @@ export default function Main() {
                 <Route path="/list" element={<List />} />
                 <Route path="/detail" element={<TaskDetail tasks={JSON.stringify(tasks)} />} />
                 <Route path="/createNew" element={<CreateNew />} />
+                <Route path="*" element={<NotFound />} />
             </Routes>
         </BrowserRouter>
     )

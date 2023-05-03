@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Loading from './components/Loading';
 import { GetTaskById } from '../models/DB';
 import "./stylesheets/detail.css";
 
@@ -70,7 +71,10 @@ function TaskDetail() {
     </>
     }
 
-    return <p>Loading...</p>
+    return <>
+        <Header />
+        <Loading />
+    </>
 }
 
 export default TaskDetail;

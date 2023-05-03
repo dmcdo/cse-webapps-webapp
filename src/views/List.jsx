@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Loading from './components/Loading';
 import { GetTasks } from '../models/DB';
 import "./stylesheets/list.css";
 
@@ -51,7 +52,10 @@ function List(props) {
             <Footer />
         </>;
 
-    return <p>Loading...</p>
+    return <>
+        <Header />
+        <Loading />
+    </>
 }
 
 export default List;
