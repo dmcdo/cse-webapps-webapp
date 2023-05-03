@@ -51,7 +51,7 @@ function List(props) {
             <Footer />
         </>;
 
-    return <p>Error loading data!</p>
+    return <p>Loading...</p>
 }
 
 export default List;

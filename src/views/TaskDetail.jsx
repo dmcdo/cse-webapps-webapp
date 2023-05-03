@@ -70,7 +70,7 @@ function TaskDetail() {
     </>
     }
 
-    return <p>Error loading data!</p>
+    return <p>Loading...</p>
 }
 
 export default TaskDetail;
