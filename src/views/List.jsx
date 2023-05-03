@@ -1,61 +1,102 @@
-import React, {useState, useEffect} from 'react';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import Loading from './components/Loading';
-import { GetTasks } from '../models/DB';
+import React, { useState } from "react";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Loading from "./components/Loading";
+import { GetTasks } from "../models/DB";
 import "./stylesheets/list.css";
 
 function TaskPreview({ id, name, endDate, status }) {
-    return <div className="task">
-        <p className="taskName"><a href={`/detail?id=${id}`}>{name}</a></p>
-        <p class="taskInfo">Due: {endDate}. Status: {status}</p>
-        <p className="taskActions">
-            <a href="list"><button class="taskUpdateBtn hover:scale-105 transition-all shadow-md">Update</button></a>
-            <a href="list"><button class="taskDeleteBtn hover:scale-105 transition-all shadow-md">Delete</button></a>
-        </p>
+  return (
+    <div className="task">
+      <p className="taskName">
+        <a href={`/detail?id=${id}`}>{name}</a>
+      </p>
+      <p className="taskInfo">
+        Due: {endDate}. Status: {status}
+      </p>
+      <p className="taskActions">
+        <a href="list">
+          <button className="taskUpdateBtn hover:scale-105 transition-all shadow-md">
+            Update
+          </button>
+        </a>
+        <a href="list">
+          <button className="taskDeleteBtn hover:scale-105 transition-all shadow-md">
+            Delete
+          </button>
+        </a>
+      </p>
     </div>
+  );
 }
 
-function ListTasks({ tasks }) {
-    let previews = [];
+function ListTasks({ tasks, searchQuery }) {
+  const filteredTasks = tasks.filter((t) =>
+    t.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
-    for (let t of tasks) {
-        previews.push(<TaskPreview id={t._id} name={t.name} endDate={t.endDate} status={t.status} />);
-    }
+  const previews = filteredTasks.map((t) => (
+    <TaskPreview
+      id={t._id}
+      name={t.name}
+      endDate={t.endDate}
+      status={t.status}
+    />
+  ));
 
-    return previews;
+  return previews;
 }
 
 function List(props) {
-    const data = GetTasks();
+  const [searchQuery, setSearchQuery] = useState("");
+  const data = GetTasks(searchQuery);
 
-    if (data)
-        return <>
-            <Header />
+  function handleSearchQueryChange(event) {
+    setSearchQuery(event.target.value);
+  }
 
-            <main className="flex flex-col">
-                <div id="goback">
-                    <a href="/">&larr; Home</a>
-                </div>
-                <div className="flex flex-col items-center">
-                    <a href="createNew">
-                        <button id="create-new-btn" className="hover:scale-125 transition-all shadow-lg">Create a new task</button>
-                    </a>
-                </div>
-                <div id="tasks">
-                    <div className="card flex flex-col items-center">
-                        <ListTasks tasks={data} />
-                    </div>
-                </div>
-            </main>
-
-            <Footer />
-        </>;
-
-    return <>
+  if (data)
+    return (
+      <>
         <Header />
-        <Loading />
+
+        <main className="flex flex-col">
+          <div className="search-bar">
+            <input
+              type="text"
+              placeholder="Search tasks..."
+              value={searchQuery}
+              onChange={handleSearchQueryChange}
+            />
+            <button>Search</button>
+          </div>
+          <div id="goback">
+            <a href="/">&larr; Home</a>
+          </div>
+          <div className="flex flex-col items-center">
+            <a href="createNew">
+              <button id="create-new-btn" className="hover:scale-125 transition-all shadow-lg">
+                Create a new task
+              </button>
+            </a>
+          </div>
+          <div id="tasks">
+            <div className="card flex flex-col items-center">
+              <ListTasks tasks={data} searchQuery={searchQuery} />
+            </div>
+          </div>
+        </main>
+
+        <Footer />
+      </>
+    );
+
+  return (
+    <>
+      <Header />
+      <Loading />
     </>
+  );
 }
 
 export default List;
