@@ -1,1 +1,8 @@
-/*    /index.html  200
+/          /index.html  200
+/list      /index.html 200
+/about     /index.html 200
+/detail    /index.html 200
+/detail/*  /index.html 200
+
+/api/get/tasks/byuser/*  https://cse-webapps-backend.onrender.com
+/api/get/tasks/byid/*    https://cse-webapps-backend.onrender.com
