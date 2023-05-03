@@ -19,7 +19,7 @@ function ListTasks({ tasks }) {
     let previews = [];
 
     for (let t of tasks) {
-        previews.push(<TaskPreview id={t.id} name={t.name} endDate={t.endDate} status={t.status} />);
+        previews.push(<TaskPreview id={t._id} name={t.name} endDate={t.endDate} status={t.status} />);
     }
 
     return previews;

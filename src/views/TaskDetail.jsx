@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import { GetTasks } from '../models/DB';
+import { GetTaskById } from '../models/DB';
 import "./stylesheets/detail.css";
 
 function Task({ name, category, urgency, startDate, endDate, location, status, description }) {
@@ -22,11 +22,26 @@ function Task({ name, category, urgency, startDate, endDate, location, status, d
 }
 
 function TaskDetail() {
-    const data = GetTasks();
-    const id = Number(new URLSearchParams(window.location.search).get("id"));
+    const id = new URLSearchParams(window.location.search).get("id");
+    const task = GetTaskById({ id });
     console.log("ID: " + id);
+    console.log("Data: " + task);
+    console.log(task);
 
-    if (data) return <>
+    if (task) {
+    let picture;
+    if (task.category == "Classwork")
+        picture = "categories/classwork.jpeg"
+    else if (task.category == "Extracirricular")
+        picture = "categories/extracurricular.jpg";
+    else if (task.category == "Personal")
+        picture = "categories/personal.jpg";
+    else if (task.category == "Shopping")
+        picture = "categories/shopping.jpg";
+    else
+        picture = "categories/personal.jpg";
+
+    return <>
         <Header />
 
         <main className="flex flex-col">
@@ -37,37 +52,23 @@ function TaskDetail() {
         </div>
             <div id="tasks" className="card flex flex-col items-center">
                 <div className="image-select">
-                    <h2><b>Select picture per task type:</b></h2>
                     <div className="pictures">
-                        <div>
-                        <p>Classwork</p>
-                        <img src="categories/classwork.jpeg" alt="Classwork" className="cat-img" />
-                        </div>
-                        <div>
-                        <p>Extracurricular</p>
-                        <img src="categories/extracurricular.jpg" alt="Extracurricular" className="cat-img" />
-                        </div>
-                        <div>
-                        <p>Personal</p>
-                        <img src="categories/personal.jpg" alt="Personal" className="cat-img" />
-                        </div>
-                        <div>
-                        <p>Shopping</p>
-                        <img src="categories/shopping.jpg" alt="Shopping" className="cat-img" />
-                        </div>
+                        <p>{task.category}</p>
+                        <img src={picture} alt={task.category} className="cat-img" />
                     </div>
                 </div>
             </div>
             <div>
-                <Task name={data[id].name} category={data[id].category}
-                      urgency={data[id].urgency} startDate={data[id].startDate}
-                      endDate={data[id].endDate} location={data[id].location}
-                      status={data[id].status} description={data[id].description}/>
+                <Task name={task.name} category={task.category}
+                      urgency={task.urgency} startDate={task.startDate}
+                      endDate={task.endDate} location={task.location}
+                      status={task.status} description={task.description}/>
             </div>
         </main>
 
         <Footer />
     </>
+    }
 
     return <p>Error loading data!</p>
 }
