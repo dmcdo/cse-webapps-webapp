@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const URL = "https://cse-webapps-backend.onrender.com";
+const URL = process.env.REACT_APP_BACKEND_URL;
 
 export const GetTasks = function() {
     const [data, setData] = useState(null);
@@ -45,7 +45,7 @@ export const PutTask = async function({ name, category, urgency, startDate, endD
 export const UpdateTask = async function({ id, name, category, urgency, startDate, endDate, location, status, description }) {
     const user = localStorage.getItem("name") ? localStorage.getItem("name") : "default";
 
-    await axios.put(`${URL}/api/update/task`, { id, user, name, category, urgency, startDate, endDate, location, status, description});
+    await axios.put(`${URL}/api/update/task`, { id,user, name, category, urgency, startDate, endDate, location, status, description});
 }
 
 export const DeleteTask = async function({ id }) {
