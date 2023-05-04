@@ -1,0 +1,37 @@
+use cse-todo-app;
+
+db.tasks.insertMany([
+	{
+		"user": "default",
+		"name": "Finish webapps Milestone 1.",
+		"category": "Classwork",
+		"urgency": "None",
+		"startDate": "2023-02-18",
+		"endDate": "2023-02-19",
+		"location": "Main Campus",
+		"status": "Completed",
+		"description": "This assignment provides the first step toward developing a dynamic web application by creating a set of static HTML5 pages for several core parts of the application flow. These pages serve as a look-and-feel design prototype for later functional / dynamic application development. This assignment is intended to (re)familiarize students with HTML development and navigation, as well as application design, deployment requirements, and assignment submission in the context of the course."
+	},
+	{
+		"user": "default",
+		"name": "Finish webapps Milestone 2.",
+		"category": "Classwork",
+		"urgency": "None",
+		"startDate": "2023-04-10",
+		"endDate": "2023-04-19",
+		"location": "Main Campus",
+		"status": "Completed",
+		"description": "Do Milestone 2"
+	},
+	{
+		"user": "default",
+		"name": "Finish webapps Milestone 3.",
+		"category": "Classwork",
+		"urgency": "High",
+		"startDate": "2023-05-01",
+		"endDate": "2023-05-04",
+		"location": "Main Campus",
+		"status": "Urgent",
+		"description": "Do Milestone 3"
+	},
+]);
