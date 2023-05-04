@@ -66,6 +66,7 @@ function List(props) {
         <Header />
 
         <main className="flex flex-col">
+        <br />
         <div className="flex flex-col items-center">
           <div className="search-bar">
               <input
