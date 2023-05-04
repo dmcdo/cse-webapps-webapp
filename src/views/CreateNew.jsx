@@ -17,7 +17,6 @@ function CreateNew() {
         let location    = document.getElementsByName("taskLocation")   [0].value;
         let description = document.getElementsByName("taskDescription")[0].value;
         let status      = "In Progress";
-        let user        = "default";
 
         let missing = [];
         if (!name)        missing.push("name");
@@ -34,7 +33,7 @@ function CreateNew() {
         }
 
         try {
-            await PutTask({ user, name, category, urgency, startDate, endDate, location, description, status });
+            await PutTask({ name, category, urgency, startDate, endDate, location, description, status });
         }
         catch (ex) {
             alert("Encountered an error trying to upload this task.");

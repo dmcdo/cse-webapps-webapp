@@ -5,10 +5,11 @@ const URL = "https://cse-webapps-backend.onrender.com";
 
 export const GetTasks = function() {
     const [data, setData] = useState(null);
+    const user = localStorage.getItem("name") ? localStorage.getItem("name") : "default";
 
     useEffect(() => {
         const load = async () => {
-            const response = await axios.get(`${URL}/api/get/tasks/byuser/default`);
+            const response = await axios.get(`${URL}/api/get/tasks/byuser/${user}`);
             const tasks = response.data;
             setData(tasks);
         }
@@ -35,6 +36,8 @@ export const GetTaskById = function({ id }) {
     return data;
 }
 
-export const PutTask = async function({ user, name, category, urgency, startDate, endDate, location, status, description }) {
+export const PutTask = async function({ name, category, urgency, startDate, endDate, location, status, description }) {
+    const user = localStorage.getItem("name") ? localStorage.getItem("name") : "default";
+
     await axios.put(`${URL}/api/put/task`, {user, name, category, urgency, startDate, endDate, location, status, description});
 }
