@@ -1,11 +1,21 @@
 import React from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Loading from './components/Loading';
 import "./stylesheets/createnew.css"
 
-import { PutTask } from "../models/DB";
+import { PutTask, UpdateTask, GetTaskById } from "../models/DB";
 
 function CreateNew() {
+    const id = new URLSearchParams(window.location.search).get("id");
+    const fill = id ? GetTaskById({ id }) : {};
+
+    if (!fill)
+        return <>
+        <Header />
+        <Loading />
+      </>
+
     const submittask = async (e) => {
         e.preventDefault();
 
@@ -33,7 +43,17 @@ function CreateNew() {
         }
 
         try {
-            await PutTask({ name, category, urgency, startDate, endDate, location, description, status });
+            await (id ? UpdateTask : PutTask)({
+                id,
+                name,
+                category,
+                urgency,
+                startDate,
+                endDate,
+                location,
+                description,
+                status,
+            });
         }
         catch (ex) {
             alert("Encountered an error trying to upload this task.");
@@ -54,31 +74,33 @@ function CreateNew() {
                 </div>
                 <form className="m-auto" onSubmit={submittask}>
                     <div className="card flex flex-col items-center">
-                    <label for="taskName">Task Name:</label>
-                    <input type="text" name="taskName" placeholder="Untitled" />
-                    <label for="taskCategory">Category:</label>
-                    <input type="text" name="taskCategory" />
-                    <label for="taskUrgency">Urgency:</label>
+                    <label htmlFor="taskName">Task Name:</label>
+                    <input type="text" name="taskName" defaultValue={fill.name || ""} />
+                    <label htmlFor="taskCategory">Category:</label>
+                    <input type="text" name="taskCategory" defaultValue={fill.category || ""} />
+                    <label htmlFor="taskUrgency" defaultValue={fill.urgency || "Normal"}>Urgency:</label>
                     <select name="taskUrgency">
                         <option value="verylow">Very Low</option>
                         <option value="low">Low</option>
-                        <option value="normal" selected="selected">Normal</option>
+                        <option value="normal">Normal</option>
                         <option value="high">High</option>
                         <option value="veryhigh">Very High</option>
                     </select>
-                    <label for="taskStartDate" >Start Date:</label>
-                    <input type="date" name="taskStartDate" className="tdate" />
-                    <label for="taskEndDate">End Date:</label>
-                    <input type="date" name="taskEndDate" className="tdate" />
-                    <label for="taskLocation">Location:</label>
-                    <input type="text" name="taskLocation" id="taskLocationInput" />
-                    <label for="taskDescription">Description:</label>
-                    <textarea name="taskDescription" rows="8"></textarea>
+                    <label htmlFor="taskStartDate" >Start Date:</label>
+                    <input type="date" name="taskStartDate" className="tdate" defaultValue={fill.startDate || "" } />
+                    <label htmlFor="taskEndDate">End Date:</label>
+                    <input type="date" name="taskEndDate" className="tdate" defaultValue={fill.endDate || "" } />
+                    <label htmlFor="taskLocation">Location:</label>
+                    <input type="text" name="taskLocation" id="taskLocationInput" defaultValue={fill.location || ""} />
+                    <label htmlFor="taskDescription">Description:</label>
+                    <textarea name="taskDescription" rows="8" defaultValue={fill.description || ""}></textarea>
                     </div>
 
                     <div className="flex">
                         <button type="submit" id="submit-button"
-                                className="m-auto hover:scale-125 transition-all shadow-lg">Add Task</button>
+                                className="m-auto hover:scale-125 transition-all shadow-lg">
+                                { id ? "Update Task" : "Create Task" }
+                        </button>
                     </div>
                 </form>
             </div>

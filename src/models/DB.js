@@ -42,6 +42,12 @@ export const PutTask = async function({ name, category, urgency, startDate, endD
     await axios.put(`${URL}/api/put/task`, {user, name, category, urgency, startDate, endDate, location, status, description});
 }
 
+export const UpdateTask = async function({ id, name, category, urgency, startDate, endDate, location, status, description }) {
+    const user = localStorage.getItem("name") ? localStorage.getItem("name") : "default";
+
+    await axios.put(`${URL}/api/update/task`, { id, user, name, category, urgency, startDate, endDate, location, status, description});
+}
+
 export const DeleteTask = async function({ id }) {
     await axios.delete(`${URL}/api/delete/task/byid/${id}`);
 }

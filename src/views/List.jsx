@@ -15,9 +15,11 @@ function TaskPreview({ id, name, endDate, status }) {
         Due: {endDate}. Status: {status}
       </p>
       <p className="taskActions">
+        <a href={`/createNew?id=${id}`}>
           <button className="taskUpdateBtn hover:scale-105 transition-all shadow-md">
             Update
           </button>
+        </a>
           <button className="taskDeleteBtn hover:scale-105 transition-all shadow-md"
                   onClick={async (e) => {
                     e.preventDefault();
