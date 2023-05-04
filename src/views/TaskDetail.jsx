@@ -7,10 +7,9 @@ import "./stylesheets/detail.css";
 
 function Task({ name, category, urgency, startDate, endDate, location, status, description }) {
     return <>
-        <div className="card flex flex-col items-center">
-            <h1>{ name }</h1>
-        </div>
         <div className="task card flex flex-col items-center">
+            <h1 className="text-2xl font-bold">{ name }</h1>
+            <br />
             <h2><b>Category:</b></h2> <p>{category}</p>
             <h2><b>Urgency:</b></h2> <p>{urgency}</p>
             <h2><b>Start Date:</b></h2> <p>{startDate}</p>
@@ -46,17 +45,14 @@ function TaskDetail() {
         <Header />
 
         <main className="flex flex-col">
-        <div>
+        <div className="flex flex-col items-center">
             <div id="goback">
                 <a href="list">&larr; My To Do List</a>
             </div>
         </div>
-            <div id="tasks" className="card flex flex-col items-center">
-                <div className="image-select">
-                    <div className="pictures">
-                        <p>{task.category}</p>
-                        <img src={picture} alt={task.category} className="cat-img" />
-                    </div>
+            <div className="image-select card flex flex-col items-center">
+                <div className="pictures">
+                    <img src={picture} alt={task.category} className="cat-img" />
                 </div>
             </div>
             <div>
@@ -66,6 +62,8 @@ function TaskDetail() {
                       status={task.status} description={task.description}/>
             </div>
         </main>
+
+        <br />
 
         <Footer />
     </>

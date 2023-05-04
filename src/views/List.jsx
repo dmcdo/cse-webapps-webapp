@@ -39,12 +39,14 @@ function ListTasks({ tasks, searchQuery }) {
   );
 
   const previews = filteredTasks.map((t) => (
-    <TaskPreview
-      id={t._id}
-      name={t.name}
-      endDate={t.endDate}
-      status={t.status}
-    />
+    <div className="flex flex-col items-center">
+      <TaskPreview
+        id={t._id}
+        name={t.name}
+        endDate={t.endDate}
+        status={t.status}
+      />
+    </div>
   ));
 
   return previews;
@@ -64,31 +66,33 @@ function List(props) {
         <Header />
 
         <main className="flex flex-col">
+        <div className="flex flex-col items-center">
           <div className="search-bar">
-            <input
-              type="text"
-              placeholder="Search tasks..."
-              value={searchQuery}
-              onChange={handleSearchQueryChange}
-            />
-            <button>Search</button>
+              <input
+                type="text"
+                placeholder="Search tasks..."
+                value={searchQuery}
+                onChange={handleSearchQueryChange}
+              />
           </div>
+        </div>
+        <div className="flex flex-col items-center">
           <div id="goback">
             <a href="/">&larr; Home</a>
           </div>
-          <div className="flex flex-col items-center">
-            <a href="createNew">
-              <button id="create-new-btn" className="hover:scale-125 transition-all shadow-lg">
-                Create a new task
-              </button>
-            </a>
-          </div>
-          <div id="tasks">
-            <div className="card flex flex-col items-center">
-              <ListTasks tasks={data} searchQuery={searchQuery} />
-            </div>
-          </div>
+        </div>
+        <div className="flex flex-col items-center">
+          <a href="createNew">
+            <button id="create-new-btn" className="hover:scale-125 transition-all shadow-lg">
+              Create a new task
+            </button>
+          </a>
+        </div>
+        <br />
+        <ListTasks tasks={data} searchQuery={searchQuery} />
         </main>
+
+        <br />
 
         <Footer />
       </>
