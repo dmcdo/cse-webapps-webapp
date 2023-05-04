@@ -15,15 +15,13 @@ import { GetTasks } from './models/DB';
 
 
 export default function Main() {
-    const tasks = GetTasks();
-
     return (
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/list" element={<List />} />
-                <Route path="/detail" element={<TaskDetail tasks={JSON.stringify(tasks)} />} />
+                <Route path="/detail" element={<TaskDetail />} />
                 <Route path="/createNew" element={<CreateNew />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>
