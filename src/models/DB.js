@@ -41,3 +41,7 @@ export const PutTask = async function({ name, category, urgency, startDate, endD
 
     await axios.put(`${URL}/api/put/task`, {user, name, category, urgency, startDate, endDate, location, status, description});
 }
+
+export const DeleteTask = async function({ id }) {
+    await axios.delete(`${URL}/api/delete/task/byid/${id}`);
+}

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Loading from "./components/Loading";
-import { GetTasks } from "../models/DB";
+import { GetTasks, DeleteTask } from "../models/DB";
 import "./stylesheets/list.css";
 
 function TaskPreview({ id, name, endDate, status }) {
@@ -15,16 +15,17 @@ function TaskPreview({ id, name, endDate, status }) {
         Due: {endDate}. Status: {status}
       </p>
       <p className="taskActions">
-        <a href="list">
           <button className="taskUpdateBtn hover:scale-105 transition-all shadow-md">
             Update
           </button>
-        </a>
-        <a href="list">
-          <button className="taskDeleteBtn hover:scale-105 transition-all shadow-md">
+          <button className="taskDeleteBtn hover:scale-105 transition-all shadow-md"
+                  onClick={async (e) => {
+                    e.preventDefault();
+                    await DeleteTask({ id });
+                    window.location.reload();
+                  }}>
             Delete
           </button>
-        </a>
       </p>
     </div>
   );
